@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sawa — اتفرجوا سوا في نفس الثانية</title>
+<meta name="description" content="Sawa تطبيق بيخليك تتفرج مع صحابك على نفس الفيلم في نفس الثانية، بالشات والصوت، وكل واحد من بيته.">
+<meta property="og:title" content="Sawa — اتفرجوا سوا في نفس الثانية">
+<meta property="og:description" content="افتح غرفة، ابعت الكود لصحابك، واتفرجوا مع بعض.">
+<meta property="og:image" content="assets/social.png">
+<meta name="theme-color" content="#0f1014">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Tajawal:wght@400;500;700;800;900&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- the logo: one play button made of two halves -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="tri" d="M 34 24 L 34 76 L 78 50 Z" stroke-width="22" stroke-linejoin="round"/>
+    <mask id="gap" maskUnits="userSpaceOnUse" x="-20" y="-20" width="140" height="140"><rect x="-20" y="-20" width="140" height="140" fill="#fff"/><path d="M 0 52 C 40 34, 54 74, 100 58" fill="none" stroke="#000" stroke-width="7"/></mask>
+    <clipPath id="clipTop"><path d="M -20 52 L 0 52 C 40 34, 54 74, 100 58 L 120 58 L 120 -20 L -20 -20 Z"/></clipPath>
+    <clipPath id="clipBot"><path d="M -20 52 L 0 52 C 40 34, 54 74, 100 58 L 120 58 L 120 120 L -20 120 Z"/></clipPath>
+    <symbol id="half-top" viewBox="0 0 100 100"><g mask="url(#gap)"><g clip-path="url(#clipTop)"><use href="#tri" fill="currentColor" stroke="currentColor"/></g></g></symbol>
+    <symbol id="half-bot" viewBox="0 0 100 100"><g mask="url(#gap)"><g clip-path="url(#clipBot)"><use href="#tri" fill="#ff5a3c" stroke="#ff5a3c"/></g></g></symbol>
+  </defs>
+</svg>
+
+<header id="nav">
+  <a class="brand" href="#top" aria-label="Sawa">
+    <span class="mark"><svg class="h t"><use href="#half-top"/></svg><svg class="h b"><use href="#half-bot"/></svg></span>
+    <span class="word" dir="ltr">sawa<i>.</i></span>
+  </a>
+  <nav aria-label="القائمة">
+    <a href="#features">المميزات</a>
+    <a href="#how">إزاي بيشتغل</a>
+    <a href="#pricing">الأسعار</a>
+    <a href="#faq">أسئلة</a>
+    <a class="btn small magnetic" href="#download">حمّل التطبيق</a>
+  </nav>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="hero-text">
+      <p class="eyebrow reveal">جديد · مجاني</p>
+      <h1 class="split">اتفرجوا سوا.<br><em>في نفس الثانية.</em></h1>
+      <p class="lead reveal" style="--d:.5s">افتح غرفة، ابعت الكود لصحابك، واتفرجوا على نفس الفيلم مع بعض بالصوت والشات، وكل واحد من بيته.</p>
+      <div class="cta reveal" style="--d:.65s">
+        <a class="btn big magnetic" href="#download">حمّله مجانًا</a>
+        <a class="btn ghost big" href="#how">شوف إزاي بيشتغل</a>
+      </div>
+      <p class="note reveal" style="--d:.8s">Mac · Windows · Android</p>
+    </div>
+
+    <!-- live demo: two screens that stay on the same second -->
+    <div class="demo reveal" style="--d:.3s" aria-hidden="true">
+      <div class="screen laptop" id="scrA">
+        <div class="film"><span class="sun"></span><span class="hill"></span><span class="state"></span></div>
+        <div class="bar"><span class="fill"></span></div><b class="clock" dir="ltr">12:04</b>
+        <span class="who">منى</span>
+      </div>
+      <div class="link"><span></span><b>في نفس الثانية</b><span></span></div>
+      <div class="screen phone" id="scrB">
+        <div class="film v2"><span class="sun"></span><span class="hill"></span><span class="state"></span></div>
+        <div class="bar"><span class="fill"></span></div><b class="clock" dir="ltr">12:04</b>
+        <span class="who">علي</span>
+      </div>
+      <div class="tap" id="tap"></div>
+      <div class="chat" id="chat"></div>
+      <div class="floaters" id="floaters"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" aria-labelledby="sv">
+  <h2 id="sv" class="reveal">بيشتغل مع الخدمات اللي بتحبها. كل واحد بحسابه.</h2>
+  <div class="marquee" dir="ltr"><div class="track">
+    <span>YouTube</span><span>Netflix</span><span>Disney+</span><span>HBO Max</span><span>Shahid</span><span>Yango Play</span><span>Watch It</span><span>IPTV</span>
+    <span>YouTube</span><span>Netflix</span><span>Disney+</span><span>HBO Max</span><span>Shahid</span><span>Yango Play</span><span>Watch It</span><span>IPTV</span>
+  </div></div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="wrap sec">
+  <h2 class="title reveal">كل اللي محتاجه <em>لسهرة فيلم</em></h2>
+  <div class="cards">
+    <article class="card tilt reveal"><div class="ico i-sync"><span></span><span></span></div><h3>في نفس الثانية</h3><p>لما حد يدوس تشغيل أو إيقاف أو يقدّم، الفيديو بيتحرك عند الكل في نفس اللحظة.</p></article>
+    <article class="card tilt reveal" style="--d:.08s"><div class="ico i-voice"><span></span><span></span><span></span><span></span><span></span></div><h3>صوت وشات</h3><p>اتكلموا بصوتكم أو اكتبوا في الشات وابعتوا ريأكشن، من غير ما تخرجوا من الفيلم.</p></article>
+    <article class="card tilt reveal" style="--d:.16s"><div class="ico i-duck"><span></span><span></span></div><h3>صوت ذكي</h3><p>صوت الفيلم بيوطى لوحده لما حد من صحابك يتكلم، وبيرجع تاني. وتقدر تقفله.</p></article>
+    <article class="card tilt reveal"><div class="ico i-resume"><span></span></div><h3>كمّلوا من مكان ما وقفتوا</h3><p>الغرفة بتفتكر الفيلم والدقيقة. دوسة واحدة وترجعوا تكملوا سوا.</p></article>
+    <article class="card tilt reveal" style="--d:.08s"><div class="ico i-vote"><span></span><span></span><span></span></div><h3>صوّتوا على الفيلم</h3><p>كل واحد يضيف اقتراح، والكل يصوّت. اللي ياخد أصوات أكتر يتفتح للغرفة.</p></article>
+    <article class="card tilt reveal" style="--d:.16s"><div class="ico i-lang"><b>ع</b><b dir="ltr">A</b></div><h3>عربي وإنجليزي</h3><p>التطبيق كله بالعربي من اليمين للشمال، وتقدر تحوّله إنجليزي في أي وقت.</p></article>
+  </div>
+</section>
+
+<!-- BIG MOVING LINE -->
+<section class="band" aria-hidden="true"><div class="band-in" id="band"><span>اتفرجوا سوا</span><i></i><span>في نفس الثانية</span><i></i><span>اتفرجوا سوا</span><i></i><span>في نفس الثانية</span><i></i><span>اتفرجوا سوا</span><i></i></div></section>
+
+<!-- HOW -->
+<section id="how" class="wrap sec">
+  <h2 class="title reveal"><em>3 خطوات</em> بس</h2>
+  <div class="steps" id="steps">
+    <div class="rail" aria-hidden="true"><span id="rail"></span></div>
+    <div class="step reveal"><b>1</b><div><h3>افتح غرفة</h3><p>اكتب اسمك ودوس "اعمل غرفة". هيطلعلك كود من 6 حروف.</p><code class="code" dir="ltr" id="code">K7MP2X</code></div></div>
+    <div class="step reveal"><b>2</b><div><h3>ابعت الكود</h3><p>صحابك يكتبوا الكود في التطبيق عندهم ويدخلوا الغرفة.</p></div></div>
+    <div class="step reveal"><b>3</b><div><h3>اتفرجوا سوا</h3><p>اختار الخدمة وافتح الفيلم. هيتفتح عند الكل في نفس الثانية.</p></div></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="wrap sec">
+  <h2 class="title reveal">مجاني <em>للكل</em></h2>
+  <p class="sub reveal">كل المميزات مفتوحة من غير ما تدفع. ولو مش عايز إعلانات، تقدر تشيلها من جوه التطبيق.</p>
+  <div class="plans">
+    <div class="plan tilt reveal"><h3>مجاني</h3><p class="price">0 <small>جنيه</small></p><ul><li>كل المميزات</li><li>تزامن وصوت وشات وتصويت</li><li>مع إعلانات</li></ul></div>
+    <div class="plan best tilt reveal" style="--d:.1s"><span class="tag">من غير إعلانات</span><h3>Sawa Plus</h3><p class="price">39 <small>جنيه في الشهر</small></p><p class="alt">أو 299 جنيه في السنة</p><ul><li>كل المميزات</li><li>من غير أي إعلانات</li><li>الدفع من جوه التطبيق</li></ul></div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download" class="wrap sec">
+  <h2 class="title reveal">حمّل <em dir="ltr">Sawa</em></h2>
+  <p class="sub reveal">اختار النسخة المناسبة لجهازك. صحابك لازم ينزّلوا التطبيق برضه.</p>
+  <div class="dls">
+    <div class="dl reveal"><h3 dir="ltr">Mac — Apple Silicon</h3><p>لأجهزة M1 وM2 وM3 وM4</p><a class="btn magnetic" data-dl="macArm" href="#download">تحميل</a></div>
+    <div class="dl reveal" style="--d:.06s"><h3 dir="ltr">Mac — Intel</h3><p>لأجهزة ماك الأقدم</p><a class="btn magnetic" data-dl="macIntel" href="#download">تحميل</a></div>
+    <div class="dl reveal" style="--d:.12s"><h3 dir="ltr">Windows</h3><p>ويندوز 10 و11</p><a class="btn magnetic" data-dl="windows" href="#download">تحميل</a></div>
+    <div class="dl reveal" style="--d:.18s"><h3 dir="ltr">Android</h3><p>ملف APK للموبايل</p><a class="btn magnetic" data-dl="android" href="#download">تحميل</a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="wrap sec">
+  <h2 class="title reveal">أسئلة <em>بتتسأل كتير</em></h2>
+  <div class="faq">
+    <details class="reveal"><summary>Sawa مجاني؟</summary><div><p>أيوه، مجاني وفيه إعلانات. لو عايز تشيل الإعلانات، بتدفع من جوه التطبيق: 39 جنيه في الشهر أو 299 جنيه في السنة.</p></div></details>
+    <details class="reveal"><summary>محتاج حساب في Netflix أو Shahid؟</summary><div><p>أيوه. كل واحد في الغرفة بيدخل بحسابه هو في الخدمة. Sawa بيظبّط التوقيت بس، ومش بيشارك حساب حد مع حد.</p></div></details>
+    <details class="reveal"><summary>هل Sawa بيشوف الباسورد بتاعي؟</summary><div><p>لا. انت بتسجّل دخول في موقع الخدمة نفسه جوه التطبيق. الباسورد مش بيتبعت لسيرفر Sawa.</p></div></details>
+    <details class="reveal"><summary>مين يقدر يدخل الغرفة؟</summary><div><p>اللي معاه كود الغرفة بس. مفيش غرف عامة ومفيش غُرب.</p></div></details>
+    <details class="reveal"><summary>ينفع نتفرج على قنوات IPTV؟</summary><div><p>أيوه، كل واحد بيحمّل قائمته هو. القنوات اللايف بتتشغّل وتتوقف مع بعض، بس مش بنفس الثانية بالظبط.</p></div></details>
+  </div>
+</section>
+
+<!-- LAST CALL -->
+<section class="last">
+  <div class="glow" aria-hidden="true"></div>
+  <span class="mark xl reveal"><svg class="h t"><use href="#half-top"/></svg><svg class="h b"><use href="#half-bot"/></svg></span>
+  <h2 class="reveal">السهرة الجاية <em>سوا</em></h2>
+  <a class="btn big magnetic reveal" href="#download">حمّله مجانًا</a>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Sawa"><span class="mark"><svg class="h t"><use href="#half-top"/></svg><svg class="h b"><use href="#half-bot"/></svg></span><span class="word" dir="ltr">sawa<i>.</i></span></a>
+    <p>Sawa تطبيق مستقل، وغير تابع لـ YouTube أو Netflix أو Disney+ أو HBO Max أو Shahid أو Yango Play أو Watch It. كل الأسماء والعلامات ملك أصحابها.</p>
+    <p>© 2026 Sawa</p>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
